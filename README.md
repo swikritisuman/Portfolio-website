@@ -5,9 +5,8 @@ Welcome to my personal portfolio website! This project is a showcase of my skill
 ## 🚀 Live Demo
 
 [View Portfolio](https://685911600d0426cf6f7552f8--clinquant-manatee-4b7214.netlify.app/)  
-_(Replace this with your GitHub Pages or Netlify link)_
 
----
+
 
 ## 🧰 Tech Stack
 
@@ -37,15 +36,8 @@ _(Replace this with your GitHub Pages or Netlify link)_
 ---
 
 ## 📁 Folder Structure
-/
-├── index.html
-├── style.css
-├── script.js
-├── form-handler.js
-├── images/ # Logos, profile image, project previews
-├── SwikritiSuman_Resume.pdf
-└── README.md
 
+<pre><code>## 📁 Folder Structure ```bash / ├── index.html ├── style.css ├── script.js ├── form-handler.js ├── images/ # Logos, profile image, project previews ├── SwikritiSuman_Resume.pdf └── README.md ``` </code></pre>
 
 ---
 
