@@ -37,9 +37,16 @@ Welcome to my personal portfolio website! This project is a showcase of my skill
 
 ## 📁 Folder Structure
 
-<pre><code>## 📁 Folder Structure ```bash / ├── index.html ├── style.css ├── script.js ├── form-handler.js ├── images/ # Logos, profile image, project previews ├── SwikritiSuman_Resume.pdf └── README.md ``` </code></pre>
-
----
+```bash
+/
+├── index.html
+├── style.css
+├── script.js
+├── form-handler.js
+├── images/                # Logos, profile image, project previews
+├── SwikritiSuman_Resume.pdf
+└── README.md
+```
 
 ## 📬 Contact
 
