@@ -88,33 +88,63 @@ setInterval(() => {
 
 
 // Voice Welcome Message
+// Voice Welcome Message
 let speechActive = true;
+let speechInterval;
 
 function speakMessage(message) {
   if ('speechSynthesis' in window && speechActive) {
+    // Cancel any ongoing speech first to avoid overlap
+    speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(message);
     utterance.pitch = 1;
     utterance.rate = 1;
     utterance.volume = 0.9;
-    utterance.voice = speechSynthesis.getVoices().find(voice =>
-      voice.lang.startsWith('en') && voice.name.includes("Female")
-    ) || speechSynthesis.getVoices()[0];
+
+    // Wait for voices to load before setting
+    const voices = speechSynthesis.getVoices();
+    if (voices.length > 0) {
+      utterance.voice = voices.find(v => v.lang.startsWith('en') && v.name.includes("Female"))
+        || voices[0];
+    }
+
     speechSynthesis.speak(utterance);
   }
 }
 
-// Trigger welcome voice after DOM loads
+// Run after DOM is loaded
 window.addEventListener("DOMContentLoaded", () => {
+  const muteBtn = document.querySelector("#mute-btn");
+  const message = "Hi! I’m Swikriti. Welcome to my portfolio.";
+
+  // First speak after 1s
   setTimeout(() => {
-    speakMessage("Hi! I’m Swikriti. Welcome to my portfolio.");
+    speakMessage(message);
   }, 1000);
+
+  // Speak every 10 seconds
+  speechInterval = setInterval(() => {
+    speakMessage(message);
+  }, 10000);
+
+  // Mute / Unmute
+  muteBtn?.addEventListener("click", () => {
+    speechActive = !speechActive;
+    if (!speechActive) {
+      speechSynthesis.cancel();
+      muteBtn.innerText = "🔇";
+    } else {
+      muteBtn.innerText = "🔊";
+      speakMessage(message); // Speak immediately after unmuting
+    }
+  });
+
+  // Ensure voices load
+  speechSynthesis.onvoiceschanged = () => {
+    console.log("Voices loaded");
+  };
 });
 
-// Mute/Unmute control
-document.querySelector("#mute-btn")?.addEventListener("click", () => {
-  speechActive = !speechActive;
-  if (!speechActive) speechSynthesis.cancel();
 
-  document.querySelector("#mute-btn").innerText = speechActive ? "🔊 " : "🔇";
-});
+
 
