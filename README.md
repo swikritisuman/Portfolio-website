@@ -4,7 +4,7 @@ Welcome to my personal portfolio website! This project is a showcase of my skill
 
 ## 🚀 Live Demo
 
-[View Portfolio](https://685911600d0426cf6f7552f8--clinquant-manatee-4b7214.netlify.app/)  
+[View Portfolio](https://lovely-khapse-6b6421.netlify.app/)  
 
 
 
